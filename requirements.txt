@@ -1,0 +1,11 @@
+Pillow>=9.2.0
+numpy>=1.23.4
+opencv-python>=4.6.0
+tqdm
+pytesseract
+pandas
+ffmpeg-python
+joblib
+scipy
+python-slugify
+python-dotenv
