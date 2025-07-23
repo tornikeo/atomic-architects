@@ -5,10 +5,6 @@
 
 This is a comptuer vision tracking tool for nano-flakes that is very lightweight and doesn't involve any AI models. Here's how it works:
 
-![](https://github.com/tornikeo/cdn/raw/master/assets/atomic_arch/aa-raw-compressed.mp4)
-
-This video shows a transfer of a single microscopic flake to a substrate (fancy name for a floor). If you look at this video from the side, you'd see something like below:
-
 ![](https://github.com/tornikeo/cdn/raw/master/assets/atomic_arch/image-1.png)
 
 The camera starts by looking through a plastic sheet that has a flake attached to it. The sheet is transparent and out of focus, so it is very blurry initially. The plastic sheet is then lowered to the substrate and it then becomes visible. This step looks like this:
