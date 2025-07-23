@@ -1,9 +1,9 @@
-# Atomic architect
+# Atomic Architect
 
 > [!NOTE]
-> See [main.ipynb](./main.ipynb) for the exact implementation.
+> See [main.ipynb](./main.ipynb) for the implementation (the notebook is the actual executable) 
 
-This is a classical computer vision tool for tracking microscopic 2-dimensional flakes, using virtually zero annotated data. The code is [available online](https://github.com/tornikeo/atomic-architects). Here's what I mean by microscopic flakes:
+This is a comptuer vision tracking tool for nano-flakes that is very lightweight and doesn't involve any AI models. Here's how it works:
 
 ![](https://github.com/tornikeo/cdn/raw/master/assets/atomic_arch/aa-raw-compressed.mp4)
 
@@ -11,9 +11,7 @@ This video shows a transfer of a single microscopic flake to a substrate (fancy 
 
 ![](https://github.com/tornikeo/cdn/raw/master/assets/atomic_arch/image-1.png)
 
-
 The camera starts by looking through a plastic sheet that has a flake attached to it. The sheet is transparent and out of focus, so it is very blurry initially. The plastic sheet is then lowered to the substrate and it then becomes visible. This step looks like this:
-
 
 ![](https://github.com/tornikeo/cdn/raw/master/assets/atomic_arch/image-2.png)
 
@@ -23,7 +21,7 @@ At this point, the flake sticks to the substrate and stays there. The sheet is g
 
 You can also read more about this process in [this paper](https://arxiv.org/pdf/1311.4829.pdf). To actually make something useful, you will need to repeat this flake transfer multiple times and build really complex, tiny structures. The unfortunate hard part is that all of this is a really slow, manual process that requires a lot of patience. 
 
-# The solution
+## The solution
 
 The solution is to automatically track the flakes from the camera feed and use that data to automatically guide a robotic arm to assemble a structure. You could then leave the assembly robot overnight and come back to complete structures. 
 
@@ -231,7 +229,7 @@ Highest font symbols with highest similarity are then as prediction candidates. 
 
 ### Other Caveats and tips
 
-In order to accelerate frame processing speed, ,ost segmentation and contour data is **downscaled by a factor of 4 when saved**. This includes, for example, crystal segmentation data, marker bounding boxes, etc.. It is thus important to upscale these results when reading from the JSON. All the necessary scaling is done in the `visualization` section after loading, which should be used as a guide to programmically correctly interpreting the results in the JSON. 
+In order to accelerate frame processing speed, segmentation and contour data is **downscaled by a factor of 4 when saved**. This includes, for example, crystal segmentation data, marker bounding boxes, etc.. It is thus important to upscale these results when reading from the JSON. All the necessary scaling is done in the `visualization` section after loading, which should be used as a guide to programmically correctly interpreting the results in the JSON. 
 
 To increase OCR accuracy, add or remove `.tff` font files from `store/fonts`. The closer the added font is to the font used in creating marker symbols the higher the accuracy will be (Note for example, the curious shape of uppercase "N" in one of the videos, right now it is interpeted as "H", since the font files we found do not have that particular shape). Also, the hershey fonts don't seem to be the right fit, given the shape of "N" doesn't match.
 
